@@ -1,0 +1,296 @@
+<%- include('partials/head.ejs'); %>
+
+<h1 class="admin-h1">admin</h1>
+
+<article class="admin-lap">
+  <h2>Update current lap</h2>
+  <form action="/driverdata/<%- driverData[20].lap %>">
+    <label for="currentlap">Lap</label>
+    <input type="text" id="currentlap" name="currentlap" value="<%= driverData[20].lap %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+</article>
+
+<h2>Update driver data</h2>
+
+<!-- 1: Lewis hamilton -->
+<article class="admin-driver">
+  <h3><%= driverData[0].driver_name %></h3>
+  <form action="/driverdata/<%- driverData[0].driver_name %>">
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" value="<%= driverData[0].position %>"><br>
+    <label for="tyre">Current tyre</label>
+    <input type="text" id="tyre" name="tyre" value="<%= driverData[0].tyre %>"><br>
+    <label for="lap">Last lap time</label>
+    <input type="text" id="lap" name="lap" value="<%= driverData[0].lap_time %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+</article>
+
+<!-- 2: Valterri Bottas -->
+<article class="admin-driver">
+  <h3><%= driverData[1].driver_name %></h3>
+  <form action="/driverdata/<%- driverData[1].driver_name %>">
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" value="<%= driverData[1].position %>"><br>
+    <label for="tyre">Current tyre</label>
+    <input type="text" id="tyre" name="tyre" value="<%= driverData[1].tyre %>"><br>
+    <label for="lap">Last lap time</label>
+    <input type="text" id="lap" name="lap" value="<%= driverData[1].lap_time %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+</article>
+
+<!-- 3: Max Verstappen -->
+<article class="admin-driver">
+  <h3><%= driverData[2].driver_name %></h3>
+  <form action="/driverdata/<%- driverData[2].driver_name %>">
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" value="<%= driverData[2].position %>"><br>
+    <label for="tyre">Current tyre</label>
+    <input type="text" id="tyre" name="tyre" value="<%= driverData[2].tyre %>"><br>
+    <label for="lap">Last lap time</label>
+    <input type="text" id="lap" name="lap" value="<%= driverData[2].lap_time %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+</article>
+
+<!-- 4: Sergio Perez -->
+<article class="admin-driver">
+  <h3><%= driverData[3].driver_name %></h3>
+  <form action="/driverdata/<%- driverData[3].driver_name %>">
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" value="<%= driverData[3].position %>"><br>
+    <label for="tyre">Current tyre</label>
+    <input type="text" id="tyre" name="tyre" value="<%= driverData[3].tyre %>"><br>
+    <label for="lap">Last lap time</label>
+    <input type="text" id="lap" name="lap" value="<%= driverData[3].lap_time %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+</article>
+
+<!-- 5: Landa Norris -->
+<article class="admin-driver">
+  <h3><%= driverData[4].driver_name %></h3>
+  <form action="/driverdata/<%- driverData[4].driver_name %>">
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" value="<%= driverData[4].position %>"><br>
+    <label for="tyre">Current tyre</label>
+    <input type="text" id="tyre" name="tyre" value="<%= driverData[4].tyre %>"><br>
+    <label for="lap">Last lap time</label>
+    <input type="text" id="lap" name="lap" value="<%= driverData[4].lap_time %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+</article>
+
+<!-- 6: Daniel Ricciardo -->
+<article class="admin-driver">
+  <h3><%= driverData[5].driver_name %></h3>
+  <form action="/driverdata/<%- driverData[5].driver_name %>">
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" value="<%= driverData[5].position %>"><br>
+    <label for="tyre">Current tyre</label>
+    <input type="text" id="tyre" name="tyre" value="<%= driverData[5].tyre %>"><br>
+    <label for="lap">Last lap time</label>
+    <input type="text" id="lap" name="lap" value="<%= driverData[5].lap_time %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+</article>
+
+<!-- 7: Lance Stroll -->
+<article class="admin-driver">
+  <h3><%= driverData[6].driver_name %></h3>
+  <form action="/driverdata/<%- driverData[6].driver_name %>">
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" value="<%= driverData[6].position %>"><br>
+    <label for="tyre">Current tyre</label>
+    <input type="text" id="tyre" name="tyre" value="<%= driverData[6].tyre %>"><br>
+    <label for="lap">Last lap time</label>
+    <input type="text" id="lap" name="lap" value="<%= driverData[6].lap_time %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+</article>
+
+<!-- 8: Sebastian Vettel -->
+<article class="admin-driver">
+  <h3><%= driverData[7].driver_name %></h3>
+  <form action="/driverdata/<%- driverData[7].driver_name %>">
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" value="<%= driverData[7].position %>"><br>
+    <label for="tyre">Current tyre</label>
+    <input type="text" id="tyre" name="tyre" value="<%= driverData[7].tyre %>"><br>
+    <label for="lap">Last lap time</label>
+    <input type="text" id="lap" name="lap" value="<%= driverData[7].lap_time %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+</article>
+
+<!-- 9: Esteban Ocon -->
+<article class="admin-driver">
+  <h3><%= driverData[8].driver_name %></h3>
+  <form action="/driverdata/<%- driverData[8].driver_name %>">
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" value="<%= driverData[8].position %>"><br>
+    <label for="tyre">Current tyre</label>
+    <input type="text" id="tyre" name="tyre" value="<%= driverData[8].tyre %>"><br>
+    <label for="lap">Last lap time</label>
+    <input type="text" id="lap" name="lap" value="<%= driverData[8].lap_time %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+</article>
+
+<!-- 10: Fernando Alonso -->
+<article class="admin-driver">
+  <h3><%= driverData[9].driver_name %></h3>
+  <form action="/driverdata/<%- driverData[9].driver_name %>">
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" value="<%= driverData[9].position %>"><br>
+    <label for="tyre">Current tyre</label>
+    <input type="text" id="tyre" name="tyre" value="<%= driverData[9].tyre %>"><br>
+    <label for="lap">Last lap time</label>
+    <input type="text" id="lap" name="lap" value="<%= driverData[9].lap_time %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+</article>
+
+<!-- 11: Charles Leclerc -->
+<article class="admin-driver">
+  <h3><%= driverData[10].driver_name %></h3>
+  <form action="/driverdata/<%- driverData[10].driver_name %>">
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" value="<%= driverData[10].position %>"><br>
+    <label for="tyre">Current tyre</label>
+    <input type="text" id="tyre" name="tyre" value="<%= driverData[10].tyre %>"><br>
+    <label for="lap">Last lap time</label>
+    <input type="text" id="lap" name="lap" value="<%= driverData[10].lap_time %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+</article>
+
+<!-- 12: Carlos Sainz -->
+<article class="admin-driver">
+  <h3><%= driverData[11].driver_name %></h3>
+  <form action="/driverdata/<%- driverData[11].driver_name %>">
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" value="<%= driverData[11].position %>"><br>
+    <label for="tyre">Current tyre</label>
+    <input type="text" id="tyre" name="tyre" value="<%= driverData[11].tyre %>"><br>
+    <label for="lap">Last lap time</label>
+    <input type="text" id="lap" name="lap" value="<%= driverData[11].lap_time %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+</article>
+
+<!-- 13: Pierre Gasly -->
+<article class="admin-driver">
+  <h3><%= driverData[12].driver_name %></h3>
+  <form action="/driverdata/<%- driverData[12].driver_name %>">
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" value="<%= driverData[12].position %>"><br>
+    <label for="tyre">Current tyre</label>
+    <input type="text" id="tyre" name="tyre" value="<%= driverData[12].tyre %>"><br>
+    <label for="lap">Last lap time</label>
+    <input type="text" id="lap" name="lap" value="<%= driverData[12].lap_time %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+</article>
+
+<!-- 14: Yuki Tsunoda -->
+<article class="admin-driver">
+  <h3><%= driverData[13].driver_name %></h3>
+  <form action="/driverdata/<%- driverData[13].driver_name %>">
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" value="<%= driverData[13].position %>"><br>
+    <label for="tyre">Current tyre</label>
+    <input type="text" id="tyre" name="tyre" value="<%= driverData[13].tyre %>"><br>
+    <label for="lap">Last lap time</label>
+    <input type="text" id="lap" name="lap" value="<%= driverData[13].lap_time %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+</article>
+
+<!-- 15: Kimi Raikkonen -->
+<article class="admin-driver">
+  <h3><%= driverData[14].driver_name %></h3>
+  <form action="/driverdata/<%- driverData[14].driver_name %>">
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" value="<%= driverData[14].position %>"><br>
+    <label for="tyre">Current tyre</label>
+    <input type="text" id="tyre" name="tyre" value="<%= driverData[14].tyre %>"><br>
+    <label for="lap">Last lap time</label>
+    <input type="text" id="lap" name="lap" value="<%= driverData[14].lap_time %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+</article>
+
+<!-- 16: Antonio Giovinazzi -->
+<article class="admin-driver">
+  <h3><%= driverData[15].driver_name %></h3>
+  <form action="/driverdata/<%- driverData[15].driver_name %>">
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" value="<%= driverData[15].position %>"><br>
+    <label for="tyre">Current tyre</label>
+    <input type="text" id="tyre" name="tyre" value="<%= driverData[15].tyre %>"><br>
+    <label for="lap">Last lap time</label>
+    <input type="text" id="lap" name="lap" value="<%= driverData[15].lap_time %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+</article>
+
+<!-- 17: Mick Schumacher -->
+<article class="admin-driver">
+  <h3><%= driverData[16].driver_name %></h3>
+  <form action="/driverdata/<%- driverData[16].driver_name %>">
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" value="<%= driverData[16].position %>"><br>
+    <label for="tyre">Current tyre</label>
+    <input type="text" id="tyre" name="tyre" value="<%= driverData[16].tyre %>"><br>
+    <label for="lap">Last lap time</label>
+    <input type="text" id="lap" name="lap" value="<%= driverData[16].lap_time %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+</article>
+
+<!-- 18: Nikita Mazepin -->
+<article class="admin-driver">
+  <h3><%= driverData[17].driver_name %></h3>
+  <form action="/driverdata/<%- driverData[17].driver_name %>">
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" value="<%= driverData[17].position %>"><br>
+    <label for="tyre">Current tyre</label>
+    <input type="text" id="tyre" name="tyre" value="<%= driverData[17].tyre %>"><br>
+    <label for="lap">Last lap time</label>
+    <input type="text" id="lap" name="lap" value="<%= driverData[17].lap_time %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+</article>
+
+<!-- 19: George Russel -->
+<article class="admin-driver">
+  <h3><%= driverData[18].driver_name %></h3>
+  <form action="/driverdata/<%- driverData[18].driver_name %>">
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" value="<%= driverData[18].position %>"><br>
+    <label for="tyre">Current tyre</label>
+    <input type="text" id="tyre" name="tyre" value="<%= driverData[18].tyre %>"><br>
+    <label for="lap">Last lap time</label>
+    <input type="text" id="lap" name="lap" value="<%= driverData[18].lap_time %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+</article>
+
+<!-- 20: Nicholas Latifi -->
+<article class="admin-driver">
+  <h3><%= driverData[19].driver_name %></h3>
+  <form action="/driverdata/<%- driverData[19].driver_name %>">
+    <label for="position">Position</label>
+    <input type="text" id="position" name="position" value="<%= driverData[19].position %>"><br>
+    <label for="tyre">Current tyre</label>
+    <input type="text" id="tyre" name="tyre" value="<%= driverData[19].tyre %>"><br>
+    <label for="lap">Last lap time</label>
+    <input type="text" id="lap" name="lap" value="<%= driverData[19].lap_time %>"><br>
+    <input type="submit" value="Submit">
+  </form>
+</article>
+
+<%- include('partials/footer.ejs'); %>

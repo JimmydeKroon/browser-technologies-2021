@@ -1,214 +1,96 @@
-# Browser Technologies @cmda-minor-web 20-21
+# EXTRA, Break the Web
+For this excersize i will research 2 web features to see what happens when you disable them. The two features are:
+1. Images
+2. Mouse/trackpad
 
-//Robuuste, toegankelijke websites ontwerpen en maken …
+## Images
+Images are an important part of most websites, they allow us to add visual context to any content. But what if someone disables images in their browser?
+<br />
+<br />
 
-Één van de mooiste [principes](https://www.w3.org/DesignIssues/Principles.html) van het web is dat iedereen met een computer en een browser het web kan gebruik. [Het web is voor iedereen](https://www.youtube.com/watch?v=UMNFehJIi0E). Het is geen gecontroleerde (programmeer) omgeving, je kan er gerust van uit gaan dat niemand precies hetzelfde te zien krijgt als wat jij in je browser ziet. Er zijn technische beperkingen, zoals afmetingen van de browser, grootte van het apparaat, manier van interactie, kwaliteit van de hardware, kwaliteit van het netwerk en er zijn mensen, allemaal verschillende mensen ...
+<!-- ![spacex-comparison](img/spacex-imagecomparison.gif "spacex comparison") -->
 
-In het vak Browser Technologies gaan we onderzoeken wat Progressive Enhancement is en hoe je dit kan toepassen om goede, robuuste, toegankelijke websites te maken. Voor iedereen. Het web is voor iedereen, in dit vak leer je hoe je daarvoor kan zorgen.
+### WHY?!
+Why would someone disable images on the internet to begin with? People could be blocking images for different reasons, for example:
+* People with visual impairments use non-visual browsers, these browsers use screen readers to read the content aloud. Images are useless in this context and are not displayed.
+* Some people choose to block images in the settings of their browser. This could be because they want to save bandwidth (images are quite large and can slow down loading time), or for privacy reasons.
+<br />
+<br />
 
-## Opdrachten
+### How?
+Disabling images is actually quite easy.
+* For chromium based browsers (chrome, brave etc.) click on the three dots in the top right, then settings > privacy & security > site settings, and under images switch to "do not show any images". The browser will now try to filter out all images.
+<br />
+<br />
 
-het vak bestaat uit 3 opdrachten. In week 1 werken we aan opdracht 1 en 2. Vanaf week 2 werken we aan de eindopdracht.
+![Disable-images](img/disable-images.png "settings > disable images")
+<br />
+<br />
+<br />
 
-### Opdracht 1 🛹 NPM install Progressive- enhancement
+* For Safari, go to preferences in the top menu > click Appearance > uncheck "display images"
 
-Voor de eerste opdracht gaan we onderzoeken wat Progressive Enhancement is.
+* For Firefox type about:config in the search bar, search for this option "permissions.default.image" change it to 2.
 
-- [Opdracht 1 - NPM install Progressive Enhancement](course/Opdracht1.md)
+    Possible values:
 
-### Opdracht 2 💔 Breek het Web
+    1 -- Always load the images
 
-Voor opdracht 2 ga je proberen het Web te laten 'breken' door (browser) features bewust uit te zetten. Wat gebeurt er als images, custom fonts, JavaScript, kleur, breedband internet niet optimaal werken? 
+    2 -- Never load the images
 
-- [Opdracht 2 - Breek het Web](course/Opdracht2.md)
+    3 -- Don't load third images
+<br />
+<br />
 
-### De eindopdracht ✨ Progressive Enhanced Browser Technologie
+### Dealing with disabled/blocked images
+There is not a lot you can do about the user blocking images. But if the image is an important piece of content for the website the information in the image should be accessible in another way.
 
-Voor de eindopdracht ontwerp en maak je een interactieve toepassing volgens het principe van Progressive Enhancement. Zorg dat alle gebruikers, met alle browsers, in iedere context de toepassing zo goed mogelijk te zien, horen en/of voelen krijgen. De meest 'enhanced' versie is 'delightful UX', mooi en prettig om te gebruiken.
+* Not using an alt tag at all tells the browser the image is a key part of the website and there is no textual equivalent available. In this case it might be wise to find another way present the information the image is trying to show.
+* Using an empty alt tag (alt="") means the image is not a key part of the content. Screen readers will ignore the image and not mention it.
+    
+    **Also, if the image tag is empty the browser will not show the broken image icon!*
 
-- [De eindopdracht - Progressive Enhanced Browser Technologie](course/Eindopdracht.md)
+* The description in an alt tag should be clear and detailed.
+<br />
+<br />
 
+![alt-description](img/image-description.png "image alt description")
+<br />
+<br />
 
-### Leerdoelen
-- _je leert wat Progressive enhancement is en hoe je dit kan toepassen._
-- _je leert Browser Technologies te onderzoeken, testen en implementeren als enhancement._
-- _je leert hoe je Feature Detection doet en wat je kan doen als een 'feature' niet werkt of wordt ondersteund._
+## Mouse/trackpad
+The mouse or trackpad is an important part of the web, a lot of people use one of these tools to move their cursor. But some people don's use a mouse or trackpad, so what if you can't navigate using these tools?
+<br />
+<br />
 
-[Rubric](https://docs.google.com/spreadsheets/d/1MV3BWwwg_Zz1n-S_qOM4iSm4gA4M6g0xAxGacyaPuac/)
+![youtube-tabbing](img/youtube-tabbing.png "using tab in youtube")
+<br />
+<br />
+Here i used tab to navigate trough youtube. It is not ideal but they clearly thought about people using tab. You start in the top left and tab trough the top elements. Once you pass the youtube logo a "skip navigation" button appears, this immediatly sends you to the sidebar. Youtube has a lot of clickable components on the website so alot of tabbing is required but it seems youtube included everything as an element that can be tabbed.
+<br />
+<br />
 
-## Planning & programma
+### WHY?!
+There could be a lot of reasons for not using a mouse or trackpad, the user could be injured and unable to use a mouse or does not want to use a mouse for too long because of ergonomic reasons. Other reasons could be a broken mouse or broken trackpad or the mouse could be unavailable because of the place the device is being used. The user should still be able to browse the web without mouse or trackpad.
+<br />
+<br />
 
-| Planning  | Woensdag  |  Donderdag | Vrijdag  |
-|---|---|---|---|
-| [Week 1](#week-1)  | Intro, College + briefing opdracht 1 | Presentaties opdracht 1, college +  briefing opdracht 2 | Presentaties opdracht 2 |
-| [Week 2](#week-2)  | College + Briefing De eindopdracht  | College + werken aan de opdracht | Feedbackgesprekken  |
-| [Week 3](#week-3)  | College + werken aan de opdracht  |  College + werken aan de opdracht | Feedbackgesprekken  |
-| [Week 4](#week-4)  | Beoordelingsgesprekken (Dinsdag en Woensdag) | Weekly Nerd | Goede vrijdag |
+### How?
+This experiment is super simple, just don't use the mouse or trackpad! (it is very difficult to not touch it out of habit though...)
+<br />
+<br />
 
-### Week 1
+### Dealing with users who don't have a mouse/trackpad
+When a mouse or trackpad is not available, using tab to navigate trough a webpage is the best alternative. By default certain interactive html elements get marked as elements that can be tabbed trough. Examples of elements that can be tabbed trough by default are links (\<a>\), text fields, checkboxes etc.  
 
-Het web is voor iedereen: Deze week gaan we onderzoeken wat Progressive Enhancement is en kennismaken met testen ~~en het device lab~~.
+You can make any html element interactive by using tabindex or javascript.
 
-#### Woensdag 10 maart
+* Before using tabindex you have to make sure the element is interactive. Giving a regular div tabindex could be confusing for users, make sure to make the div interactive with keyboard events for example.
 
-Browser Technolgies begint op woensdag. In het eerste college krijg je uitleg over het programma en over het nut van Progressive Enancement. Wat is dat eigenlijk? De meeste CMD studenten hebben dit waarschijnlijk al eens gehoord en misschien iets mee gedaan in blok Tech. Progressive Enhancement, oftewel PE, is een manier hoe je je de code van een website kan bouwen zodat alle gebruikers met alle browsers je website zo goed mogelijk te zien krijgen. Met PE kun je robuuste websites bouwen die het altijd doen. PE is een manier van denken.
+* tabindex=0 will make an element focusable, it will act like the other default interactive elements.
 
-| Woensdag 10/3 | Wat  |
-|---|---|
-| 9:30 | [College les 1 over het vak, wie, wat, waar en PE](course/BT2021-les1-progressive-enhancement.pdf)  |
-|  | [Briefing Opdracht 1 🛹 NPM install Progressive-Enhancement](course/Opdracht1.md) |
-| 16:00 | Checkout per team |
+* You can use tabindex to make a focus order by giving it positive values. Tabindex=1 will push the element forward and show first, then tabindex=2 etc. It is advised to not use this method to create a focus order, it is much better to create a natural order by setting focusable in the right order in your html. This way the focus will work right naturally.
 
-##### Lezen voor les 1 📖
+* You can change the way a focused element looks with the :focus style. All browsers have their own default style for focused objects so if you want it to be consistent this is the only way.
 
-- [Everyone has JavaScript, right? by Stuart Langridge](https://kryogenix.org/code/browser/everyonehasjs.html)
-
-
-
-
-#### Donderdag 11 maart
-
-Donderdag gaan we in je Squad opdracht 1 bekijken en bespreken. Als het goed is heb je een beeld gevormd van Progressive Enhancement. Tijdens de bespreking kun je ook vragen te stellen, samen onderzoeken we wat PE is, waarom het goed is om te begrijpen en misschien kunnen we al wat voorbeelden bespreken hoe je het zou kunnen toepassen.
-
-In het college krijg je uitleg over opdracht 2. Voor deze opdracht ga je proberen het web te laten 'breken' door (browser) features bewust uit te zetten. Wat gebeurt er als images, custom fonts, JavaScript, kleur, breedband internet niet optimaal werken?
-
-🤟 Vandaag geeft [Aaron Gustafson](https://www.aaron-gustafson.com) een gast-college. hij schreef in 2008 het artikel [Understanding Progressive Enhancement](https://alistapart.com/article/understandingprogressiveenhancement/) waarna deze manier van denken een belangrijk onderdeel werd van Web Development. Aaron Gustafson werkt bij Microsoft als 'web standard advocate' met het Edge browser team.
-
-| Donderdag 11/3 | Wat  |
-|---|---|
-| 9:30 | Opdracht 1 bespreken in Squads 🛹 |
-| 10:30 | [College les 2 over Browser features](course/BT2021-les2-progressive-enhancement.pdf) |
-|  | [Briefing Opdracht 2 💔 Breek het web](course/Opdracht2.md) |
-| 16:00 | Checkout per team |
-| 18:00 | Gastcollege Aaron Gustafson 🤟 |
-
-Lezen voor les 2 📖
-
-- [The unreasonable effectiveness of simple HTML by Terence Eden](https://shkspr.mobi/blog/2021/01/the-unreasonable-effectiveness-of-simple-html/)
-
-#### Vrijdag 12 maart
-
-Vrijdag bespreken we in clubjes opdracht 2. Zorg dat je de bevindingen van je onderzoek online kan presenteren. We gaan de hele feature lijst doorlopen en alle studenten kunnen laten zien wat ze hebben onderzocht, met voorbeelden, de problemen, cijfers en/of meningen. Bedenk ook hoe je de problemen zou kunnen oplossen.
-
-| Vrijdag 12/3 | Wat  |
-|---|---|
-| 11:30 | Opdracht 2 bespreken in team A 💔 |
-| 13:00 | Opdracht 2 bespreken in team B 💔 |
-| 14:30 | Opdracht 2 bespreken in team C 💔 |
-| 16:00 | Work Hard Play Hard |
-
-### Week 2
-
-In week 2 beginnen we met de eindopdracht. We hebben in week 1 onderzocht wat PE is en welke feautures wel of niet goed worden ondersteund. Deze week gaan we leren hoe je een interactieve toepassing in 3 lagen kan ontwerpen en wat je kan doen als een browser een 'enhancement' niet kan tonen.
-
-#### Woensdag 17 maart
-
-Woensdag krijg je een briefing van de eindopdracht en een college over browsers, en alles (!) wat daarbij hoort. Daarna gaan we aan de slag: als je een interactieve toepassing ontwerpt die alle gebruikers, met alle browsers moeten kunnen zien, dan zul je moeten bedenken hoe je de toepassing in 3 lagen kan opbouwen, eerst bepaal je de core functionaliteit en de user-delight ... schetsen maar!
-
-| Woensdag 17/3 | Wat  |
-|---|---|
-| 9:30 | College les 3 over browsers, browser detect, support detection en web views |
-|  | [Briefing eindopdracht ✨ Progressive Enhanced Browser Technologie](course/Eindopdracht.md) |
-| 10:30 | Sessies: User Deligt & Core functionaliteit ✨ |
-| 16:00 | Checkout per team |
-
-#### Donderdag 18 maart
-
-Donderdag gaan we voorbeelden van PE en feature detection bespreken in een college over form validatie. Daarna aan de slag met je ontwerp, in clubjes gaan we je ontwerpideeën bespreken en bedenken hoe je dit in 3 lagen zou kunnen bouwen.  
-
-🤟 Vandaag geeft [Heydon Pickering](https://heydonworks.com) een gastcollege om 14:00. Heydon Pickering is een web developer, hij geeft lezingen en schrijft over toegankelijkeid en web design o.a. voor [Smashing Magazin](https://www.smashingmagazine.com/author/heydon-pickering/). Vorige week heb je een metafoor voor PE bedacht naar aanleiding van een filmpje van Hedon Pickering zelf. Hij komt vandaag langs! Wat wil je hem vragen over het web?
-
-| Donderdag 18/3 | Wat  |
-|---|---|
-| 9:30 | College les 4 over form-validatie |
-| 10:30 | Sessies: Bouwen in 3 lagen ✨ |
-| 14:00 | Q&A Heydon Pickering 🤟 |
-| 16:00 | Checkout per team |
-
-Lezen voor les 4 📖
-
-- [Be progressive by Jeremy Keith](https://adactio.com/journal/7706)
-
-#### Vrijdag 19 maart
-
-Vrijdag bespreken we in clubjes de vorderingen voor de eindopdracht. Zorg dat je vandaag weet welke browsers (en devices) jij gaat testen.
-
-| Vrijdag 19/3 | Wat  |
-|---|---|
-| 11:30 | Vorderingen bespreken in team C ✨ |
-| 13:00 | Vorderingen bespreken in team A ✨ |
-| 14:30 | Vorderingen bespreken in team B ✨ |
-| 16:00 | Work Hard Play Hard |
-
-### Week 3
-
-Deze week werken we verder werken aan de eindopdracht en houden we gesprekken om jullie vorderingen te bespreken en vragen te beantwoorden.
-
-#### Woensdag 24 maart
-
-| Woensdag 24/3 | Wat  |
-|---|---|
-| 9:30 | College les 5 over Viewports |
-| 10:30 | Sessies: Feature detectie en testen ✨ |
-| 16:00 | Checkout per team |
-
-#### Donderdag 25 maart
-
-Donderdag gaan we verder werken aan de opdracht en doen we code-review sessies.
-
-🤟 Vandaag geeft Ischa Gast een presentatie.
-
-| Donderdag 25/3 | Wat  |
-|---|---|
-| 9:30 | Gastcollege Ischa Gast 🤟 |
-| 10:30 | Sessies: Code-reviews ✨ |
-| 16:00 | Checkout per team |
-
-Lezen voor les 6 📖
-
-- [A minimum viable experience makes for a resilient, inclusive website or app](https://piccalil.li/blog/a-minimum-viable-experience-makes-for-a-resilient-inclusive-website-or-app)
-
-#### Vrijdag 26 maart
-
-Vrijdag bespreken we in clubjes de vorderingen voor de eindopdracht. Zorg dat je een code-review hebt gekregen van twee mede-studenten.
-
-| Vrijdag 26/3 | Wat  |
-|---|---|
-| 11:30 | Vorderingen bespreken in team B ✨ |
-| 13:00 | Vorderingen bespreken in team C ✨ |
-| 14:30 | Vorderingen bespreken in team A ✨ |
-| 16:00 | Work Hard Play Hard |
-
-### Week 4
-
-In week 4 wordt de eindopdracht beoordeeld. Dan gaan we je werk bekijken, bespreken en beoordelen.
-
-| Dinsdag 30/3 | Wat  |
-|---|---|
-| 9:30 - 15:30 | Beoordelingsgesprekken ✨ |
-
-| Woensdag 31/3 | Wat  |
-|---|---|
-| 9:30 - 15:30 | Beoordelingsgesprekken ✨ |
-
-| Donderdag 1/4 | Wat  |
-|---|---|
-| 14:00 | [Weekly Nerd 2️⃣](https://github.com/cmda-minor-web/weekly-nerd-2021)|
-
-<!-- Add a link to your live demo in Github Pages 🌐-->
-
-<!-- ☝️ replace this description with a description of your own work -->
-
-<!-- replace the code in the /docs folder with your own, so you can showcase your work with GitHub Pages 🌍 -->
-
-<!-- Add a nice poster image here at the end of the week, showing off your shiny frontend 📸 -->
-
-<!-- Maybe a table of contents here? 📚 -->
-
-<!-- How about a section that describes how to install this project? 🤓 -->
-
-<!-- ...but how does one use this project? What are its features 🤔 -->
-
-<!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
-
-<!-- How about a license here? 📜 (or is it a licence?) 🤷 -->
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Keyboard
