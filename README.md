@@ -1,3 +1,14 @@
+# F1 live data webapp
+This webapp is an experimental app build using node, express and ejs to display formula 1 driver data during a race. The data can be changed from an admin page and the result on an overview page. When data is changed on the admin page it will dynamically change on the other page.
+
+## Instructions (How to use)
+
+- Download or clone the repository
+- Navigate to the right folder in the terminal using cd
+- Install using: npm install
+- Start a server with npm start
+
+
 # EXTRA, Break the Web
 For this excersize i will research 2 web features to see what happens when you disable them. The two features are:
 1. Images

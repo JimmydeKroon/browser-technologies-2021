@@ -1,0 +1,124 @@
+<%- include('partials/head.ejs'); %>
+
+<header>
+  <img class="f1-logo" src="/img/f1_logo.png" alt="The formula 1 logo">
+
+  <span>Welcome!</span>
+
+  <div class="seperation-line"></div>
+
+  <span>🇧🇭 Formula 1 Gulf Air Bahrain Grand Prix 2021</span>
+</header>
+
+<%  driverData.forEach(function(el, index) { %>
+  <article data-aos="zoom-in-up" class="user-driver hoverscale">
+    <img src="/img/driver_<%= index %>.png" alt="driver: <%= el.driver_name %>">
+    <div class="user-driver-content">
+      <h3 class="position"><%= el.driver_name %>&nbsp;🏁<%= el.position %></h3>
+      <p class="tyre">Tyre: <%= el.tyre %></p>
+      <p class="laptime">Last lap: <%= el.lap_time %></p>
+
+    <% if (el.follow == "no") { %>
+      <form class="followform" action="/follow/<%- el._id %>">
+        <label>
+          <input class="hide-input" type="submit" name="follow">
+          <svg xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#EE0000">
+              
+              <path d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"/>
+          </svg>
+        </label>
+        <input type="hidden" name="votetype" value="yes"/>
+        <input type="hidden" name="driverid" value="<%- el._id %>"/>
+      </form>
+    <% }; %>
+
+    <% if (el.follow == "yes") { %>
+      <form class="followform" action="/follow/<%- el._id %>">
+        <label>
+          <input class="hide-input" type="submit" name="follow">
+          <svg class="svg-filled" xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="#EE0000">
+              
+              <path d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"/>
+          </svg>
+        </label>
+        <input type="hidden" name="votetype" value="no"/>
+        <input type="hidden" name="driverid" value="<%- el._id %>"/>
+      </form>
+    <% }; %>
+
+    </div>
+  </article>
+<% });%>
+
+<script>
+  const forms = document.querySelectorAll('.followform');
+  for(var i = 0; i < forms.length; i++){
+    forms[i].addEventListener('submit', function(event){
+      const votetype = this.querySelector('input[name="votetype"]').value;
+      const driverid = this.querySelector('input[name="driverid"]').value;
+      const svg = this.querySelector('svg');
+
+      if(votetype === "no"){
+        this.querySelector('input[name="votetype"]').value = "yes";
+        svg.style.stroke ="#EE0000";
+        svg.style.fill ="none";
+        svg.classList.remove("svg-filled");
+      }else if(votetype === "yes"){
+        this.querySelector('input[name="votetype"]').value = "no";
+        svg.style.stroke ="none";
+        svg.style.fill ="#EE0000";
+        svg.classList.add("svg-filled");
+      }
+
+      fetch('/follow/'+driverid+'?votetype='+votetype+'&isAjax=1');
+      event.preventDefault();
+    })
+  }
+
+
+
+  window.addEventListener('scroll',function() {
+    //When scroll change, you save it on localStorage.
+    localStorage.setItem('scrollPosition',window.scrollY);
+  },false);
+
+  window.addEventListener('load',function() {
+    if(localStorage.getItem('scrollPosition') !== null)
+      window.scrollTo(0, localStorage.getItem('scrollPosition'));
+  },false);
+</script>
+
+<!-- <script>
+    var intervalId = window.setInterval(function(){
+        fetch('http://localhost:5500/api/data')
+        .then(response => response.json())
+        .then(result => {
+            const position = document.querySelectorAll('.position')
+            const tyre = document.querySelectorAll('.tyre')
+            const laptime = document.querySelectorAll('.laptime')
+
+            position.forEach(function(info, index) {
+              info.innerHTML = result[index].driver_name + "  " + "🏁" + result[index].position
+            })
+
+            tyre.forEach(function(info, index) {
+              info.innerHTML = "Tyre: " + result[index].tyre
+            })
+
+            laptime.forEach(function(info, index) {
+              info.innerHTML = "Last lap: " + result[index].lap_time
+            })
+        })
+    }, 5000);
+</script> -->
+
+<%- include('partials/footer.ejs'); %>

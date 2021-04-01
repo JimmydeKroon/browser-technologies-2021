@@ -1,0 +1,161 @@
+<%- include('partials/head.ejs'); %>
+
+<header>
+  <img class="f1-logo" src="/img/f1_logo.png" alt="The formula 1 logo">
+
+  <span>Your ♥️ drivers</span>
+
+  <div class="seperation-line"></div>
+
+  <span>🇧🇭 Formula 1 Gulf Air Bahrain Grand Prix 2021</span>
+</header>
+
+<%  driverData.forEach(function(el, index) { %>
+
+  <% if (el.follow == "yes") { %>
+
+    <article data-aos="zoom-in-up" class="user-driver hoverscale">
+      <img src="/img/driver_<%= index %>.png" alt="driver: <%= el.driver_name %>">
+      <div class="my-driver-content">
+        <h3 class="position"><%= el.driver_name %> 🏁<%= el.position %></h3>
+        <p class="tyre">Tyre: <%= el.tyre %></p>
+        <p class="laptime">Last lap: <%= el.lap_time %></p>
+      </div>
+    </article>
+
+  <% }; %>
+
+<% });%>
+
+<script>
+
+if (("Notification" in window)) {
+console.log('notifications supported');
+
+  var position = document.querySelectorAll('.position');
+
+  var positionObserver = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+
+      function positionNotification() {
+        var img = mutation.target.parentNode.parentNode.firstElementChild.currentSrc;
+        var text = 'Position changed';
+        var notification = new Notification(mutation.target.innerHTML, { body: text, icon: img });
+      }
+
+      if (Notification.permission === "granted") {
+        positionNotification()
+      }
+
+      else if (Notification.permission === "default") {
+      Notification.requestPermission().then(function (permission) {
+        if (permission === "granted") {
+          positionNotification()
+        }
+      });
+      }
+    })
+  });  
+
+  var tyre = document.querySelectorAll('.tyre');
+
+  var tyreObserver = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+
+      function tyreNotification() {
+        console.log(mutation);
+        var img = mutation.target.parentNode.parentNode.firstElementChild.currentSrc;
+        var text = 'Pitstop' + mutation.removedNodes[0].nodeValue.split('Tyre:').join('') + " to" + mutation.target.innerHTML.split('Tyre:').join('');
+        var notification = new Notification(mutation.target.previousElementSibling.innerHTML, { body: text, icon: img });
+      }
+
+      if (Notification.permission === "granted") {
+        tyreNotification()
+      }
+
+      else if (Notification.permission === "default") {
+      Notification.requestPermission().then(function (permission) {
+        if (permission === "granted") {
+          tyreNotification()
+        }
+      });
+      }
+    })
+  });
+
+  var laptime = document.querySelectorAll('.laptime');
+
+  var laptimeObserver = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+
+      function laptimeNotification() {
+        var img = mutation.target.parentNode.parentNode.firstElementChild.currentSrc;
+        var text = mutation.target.data
+        var notification = new Notification(mutation.target.parentNode.offsetParent.children[0].innerText, { body: text, icon: img });
+      }
+
+      if (Notification.permission === "granted") {
+        laptimeNotification()
+      }
+
+      else if (Notification.permission === "default") {
+      Notification.requestPermission().then(function (permission) {
+        if (permission === "granted") {
+          laptimeNotification()
+        }
+      });
+      }
+    })
+  });
+
+}
+var config = { characterData: true, characterDataOldValue: true, attributes: false, childList: true, subtree: true };
+
+position.forEach(function(info, index) {
+  positionObserver.observe(info, config);
+})
+
+tyre.forEach(function(info, index) {
+  tyreObserver.observe(info, config);
+})
+
+laptime.forEach(function(info, index) {
+  laptimeObserver.observe(info, config);
+})
+
+</script>
+
+<!-- <script>
+    var intervalId = window.setInterval(function(){
+        fetch('http://localhost:5500/api/data')
+        .then(response => response.json())
+        .then (result => {
+
+          const position = document.querySelectorAll('.position')
+          const tyre = document.querySelectorAll('.tyre')
+          const laptime = document.querySelectorAll('.laptime')
+
+          let filterResult = []
+
+          result.forEach(function(data, index) {
+            if (data.follow == "yes") {
+              filterResult.push(data);
+            }
+          })
+            
+          position.forEach(function(info, index) {
+            info.textContent = filterResult[index].driver_name + " " + "🏁" + filterResult[index].position
+          })
+
+          tyre.forEach(function(info, index) {
+            info.textContent = "Tyre: " + filterResult[index].tyre
+          })
+
+          laptime.forEach(function(info, index) {
+            info.textContent = "Last lap: " + filterResult[index].lap_time
+          })
+        })
+    }, 5000);
+</script> -->
+
+<%- include('partials/footer.ejs'); %>

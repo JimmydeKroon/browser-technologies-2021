@@ -1,0 +1,31 @@
+<%- include('partials/head.ejs'); %>
+
+<header>
+  <img class="f1-logo" src="/img/f1_logo.png" alt="The formula 1 logo">
+
+  <span>Hi admin!</span>
+
+  <div class="seperation-line"></div>
+
+  <span>🇧🇭 Formula 1 Gulf Air Bahrain Grand Prix 2021</span>
+</header>
+
+<%  driverData.forEach(function(el, index) { %>
+
+  <article data-aos="zoom-in-up" class="admin-driver">
+    <img src="/img/driver_<%= index %>.png" alt="driver: <%= el.driver_name %>">
+    <h3><%= el.driver_name %></h3>
+    <form action="/driverdata/<%- el.driver_name %>">
+      <label for="position">Position</label>
+      <input type="text" id="position" name="position" value="<%= el.position %>"><br>
+      <label for="tyre">Current tyre</label>
+      <input type="text" id="tyre" name="tyre" value="<%= el.tyre %>"><br>
+      <label for="lap">Last lap time</label>
+      <input type="text" id="lap" name="lap" value="<%= el.lap_time %>"><br>
+      <input type="submit" value="Submit">
+    </form>
+  </article>
+
+<% });%>
+
+<%- include('partials/footer.ejs'); %>
