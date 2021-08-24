@@ -152,7 +152,7 @@ Every driver has a name (obviously) and race data. The follow indicates which he
 <br>
 <br>
 
-# EXTRA, Break the Web
+<!-- # EXTRA, Break the Web
 For this excersize i will research 2 web features to see what happens when you disable them. The two features are:
 1. Images
 2. Mouse/trackpad
@@ -160,11 +160,11 @@ For this excersize i will research 2 web features to see what happens when you d
 ## Images
 Images are an important part of most websites, they allow us to add visual context to any content. But what if someone disables images in their browser?
 <br />
-<br />
+<br /> -->
 
 <!-- ![spacex-comparison](img/spacex-imagecomparison.gif "spacex comparison") -->
 
-### WHY?!
+<!-- ### WHY?!
 Why would someone disable images on the internet to begin with? People could be blocking images for different reasons, for example:
 * People with visual impairments use non-visual browsers, these browsers use screen readers to read the content aloud. Images are useless in this context and are not displayed.
 * Some people choose to block images in the settings of their browser. This could be because they want to save bandwidth (images are quite large and can slow down loading time), or for privacy reasons.
@@ -248,3 +248,4 @@ You can make any html element interactive by using tabindex or javascript.
 * You can change the way a focused element looks with the :focus style. All browsers have their own default style for focused objects so if you want it to be consistent this is the only way.
 
 https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Keyboard
+ -->
