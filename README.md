@@ -142,7 +142,7 @@ Every driver has a name (obviously) and race data. The follow indicates which he
 
 <br>
 
-# browsers
+# Tested browsers
 - Brave
 - Safari desktop
 - ios Safari
